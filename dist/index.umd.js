@@ -284,7 +284,7 @@
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources: resources,
-    lng: localStorage.getItem('i18nextLng'),
+    lng: localStorage ? localStorage.getItem("i18nextLng") : "fr",
     ns: ["common"],
     defaultNS: "common",
     fallbackNS: "common",
@@ -751,7 +751,7 @@
     })), /*#__PURE__*/React__default["default"].createElement(material.Typography, {
       variant: "body2"
     }, "Settings"))), /*#__PURE__*/React__default["default"].createElement(material.Collapse, {
-      in: alertProps === null || alertProps === void 0 ? void 0 : alertProps.open
+      "in": alertProps === null || alertProps === void 0 ? void 0 : alertProps.open
     }, /*#__PURE__*/React__default["default"].createElement(material.Alert, {
       color: alertProps === null || alertProps === void 0 ? void 0 : alertProps.color,
       severity: alertProps === null || alertProps === void 0 ? void 0 : alertProps.severity,
@@ -1963,11 +1963,11 @@
     var today = new Date();
     styles.useTheme();
 
-    var _useTranslation = reactI18next.useTranslation(['common']),
+    var _useTranslation = reactI18next.useTranslation(["common"]),
         t = _useTranslation.t,
         i18n = _useTranslation.i18n;
 
-    var weeks = [t('mon'), t('tue'), t('wed'), t('thu'), t('fri'), t('sat'), t('sun')];
+    var weeks = [t("mon"), t("tue"), t("wed"), t("thu"), t("fri"), t("sat"), t("sun")];
 
     var _useState = React.useState({}),
         _useState2 = _slicedToArray__default["default"](_useState, 2),
@@ -1989,7 +1989,7 @@
         alertState = _useState8[0],
         setAlertState = _useState8[1];
 
-    var _useState9 = React.useState((options === null || options === void 0 ? void 0 : options.defaultMode) || 'month'),
+    var _useState9 = React.useState((options === null || options === void 0 ? void 0 : options.defaultMode) || "month"),
         _useState10 = _slicedToArray__default["default"](_useState9, 2),
         mode = _useState10[0],
         setMode = _useState10[1];
@@ -1999,12 +1999,12 @@
         daysInMonth = _useState12[0],
         setDaysInMonth = _useState12[1];
 
-    var _useState13 = React.useState((options === null || options === void 0 ? void 0 : options.startWeekOn) || 'mon'),
+    var _useState13 = React.useState((options === null || options === void 0 ? void 0 : options.startWeekOn) || "mon"),
         _useState14 = _slicedToArray__default["default"](_useState13, 2),
         startWeekOn = _useState14[0],
         setStartWeekOn = _useState14[1];
 
-    var _useState15 = React.useState(dateFns.format(today, 'MMMM-yyyy')),
+    var _useState15 = React.useState(dateFns.format(today, "MMMM-yyyy")),
         _useState16 = _slicedToArray__default["default"](_useState15, 2),
         selectedDate = _useState16[0],
         setSelectedDate = _useState16[1];
@@ -2012,8 +2012,8 @@
     var _useReducer = React.useReducer(function (state) {
       var _options$startWeekOn;
 
-      if ((options === null || options === void 0 ? void 0 : (_options$startWeekOn = options.startWeekOn) === null || _options$startWeekOn === void 0 ? void 0 : _options$startWeekOn.toUpperCase()) === 'SUN') {
-        return [t('sun'), t('mon'), t('tue'), t('wed'), t('thu'), t('fri'), t('sat')];
+      if ((options === null || options === void 0 ? void 0 : (_options$startWeekOn = options.startWeekOn) === null || _options$startWeekOn === void 0 ? void 0 : _options$startWeekOn.toUpperCase()) === "SUN") {
+        return [t("sun"), t("mon"), t("tue"), t("wed"), t("thu"), t("fri"), t("sat")];
       }
 
       return weeks;
@@ -2022,42 +2022,42 @@
         weekDays = _useReducer2[0],
         updateWeekDays = _useReducer2[1];
 
-    var isDayMode = mode.toLowerCase() === 'day';
-    var isWeekMode = mode.toLowerCase() === 'week';
-    var isMonthMode = mode.toLowerCase() === 'month';
-    var isTimelineMode = mode.toLowerCase() === 'timeline';
-    var TransitionMode = (options === null || options === void 0 ? void 0 : options.transitionMode) === 'zoom' ? material.Zoom : (options === null || options === void 0 ? void 0 : options.transitionMode) === 'fade' ? material.Fade : material.Slide;
+    var isDayMode = mode.toLowerCase() === "day";
+    var isWeekMode = mode.toLowerCase() === "week";
+    var isMonthMode = mode.toLowerCase() === "month";
+    var isTimelineMode = mode.toLowerCase() === "timeline";
+    var TransitionMode = (options === null || options === void 0 ? void 0 : options.transitionMode) === "zoom" ? material.Zoom : (options === null || options === void 0 ? void 0 : options.transitionMode) === "fade" ? material.Fade : material.Slide;
     var dateFnsLocale = locale.enAU;
 
-    if (locale$1 === 'fr') {
+    if (locale$1 === "fr") {
       dateFnsLocale = locale.fr;
     }
 
-    if (locale$1 === 'ko') {
+    if (locale$1 === "ko") {
       dateFnsLocale = locale.ko;
     }
 
-    if (locale$1 === 'de') {
+    if (locale$1 === "de") {
       dateFnsLocale = locale.de;
     }
 
-    if (locale$1 === 'es') {
+    if (locale$1 === "es") {
       dateFnsLocale = locale.es;
     }
 
-    if (locale$1 === 'ar') {
+    if (locale$1 === "ar") {
       dateFnsLocale = locale.ar;
     }
 
-    if (locale$1 === 'ja') {
+    if (locale$1 === "ja") {
       dateFnsLocale = locale.ja;
     }
 
-    if (locale$1 === 'ru') {
+    if (locale$1 === "ru") {
       dateFnsLocale = locale.ru;
     }
 
-    if (locale$1 === 'zh') {
+    if (locale$1 === "zh") {
       dateFnsLocale = locale.zhCN;
     }
     /**
@@ -2078,11 +2078,11 @@
           flex: 1,
           sortable: false,
           editable: false,
-          align: 'center',
+          align: "center",
           headerName: day,
-          headerAlign: 'center',
+          headerAlign: "center",
           field: "rowday".concat(i + 1),
-          headerClassName: 'scheduler-theme--header'
+          headerClassName: "scheduler-theme--header"
         };
       });
     };
@@ -2099,12 +2099,12 @@
       var rows = [],
           daysBefore = [];
       var iteration = dateFns.getWeeksInMonth(selectedDay);
-      var startOnSunday = (startWeekOn === null || startWeekOn === void 0 ? void 0 : startWeekOn.toUpperCase()) === 'SUN' && t('sun').toUpperCase() === weekDays[0].toUpperCase();
+      var startOnSunday = (startWeekOn === null || startWeekOn === void 0 ? void 0 : startWeekOn.toUpperCase()) === "SUN" && t("sun").toUpperCase() === weekDays[0].toUpperCase();
       var monthStartDate = dateFns.startOfMonth(selectedDay); // First day of month
 
       var monthStartDay = dateFns.getDay(monthStartDate); // Index of the day in week
 
-      var dateDay = parseInt(dateFns.format(monthStartDate, 'dd')); // Month start day
+      var dateDay = parseInt(dateFns.format(monthStartDate, "dd")); // Month start day
       // Condition check helper
 
       var checkCondition = function checkCondition(v) {
@@ -2116,9 +2116,9 @@
           var subDate = dateFns.sub(monthStartDate, {
             days: monthStartDay - i + (startOnSunday ? 1 : 0)
           });
-          var day = parseInt(dateFns.format(subDate, 'dd'));
+          var day = parseInt(dateFns.format(subDate, "dd"));
           var data = events.filter(function (event) {
-            return dateFns.isSameDay(subDate, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+            return dateFns.isSameDay(subDate, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
           });
           daysBefore.push({
             id: "day_-".concat(day),
@@ -2139,9 +2139,9 @@
           var subDate = dateFns.sub(monthStartDate, {
             days: _i
           });
-          var day = parseInt(dateFns.format(subDate, 'dd'));
+          var day = parseInt(dateFns.format(subDate, "dd"));
           var data = events.filter(function (event) {
-            return dateFns.isSameDay(subDate, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+            return dateFns.isSameDay(subDate, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
           });
           daysBefore.push({
             id: "day_-".concat(day),
@@ -2168,9 +2168,9 @@
         var obj = [];
 
         var _loop3 = function _loop3(j) {
-          var date = dateFns.parse("".concat(dateDay, "-").concat(selectedDate), 'dd-MMMM-yyyy', new Date());
+          var date = dateFns.parse("".concat(dateDay, "-").concat(selectedDate), "dd-MMMM-yyyy", new Date());
           var data = events.filter(function (event) {
-            return dateFns.isSameDay(date, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+            return dateFns.isSameDay(date, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
           });
           obj.push({
             id: "day_-".concat(dateDay),
@@ -2217,10 +2217,10 @@
             addDate = dateFns.add(addDate, {
               days: 1
             });
-            var d = dateFns.format(addDate, 'dd'); // eslint-disable-next-line
+            var d = dateFns.format(addDate, "dd"); // eslint-disable-next-line
 
             var data = events.filter(function (event) {
-              return dateFns.isSameDay(addDate, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+              return dateFns.isSameDay(addDate, dateFns.parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
             });
             lastDaysData.push({
               id: "day_-".concat(d),
@@ -2246,7 +2246,7 @@
     var getWeekHeader = function getWeekHeader() {
       var data = [];
       var weekStart = dateFns.startOfWeek(selectedDay, {
-        weekStartsOn: startWeekOn === 'mon' ? 1 : 0
+        weekStartsOn: startWeekOn === "mon" ? 1 : 0
       });
 
       for (var i = 0; i < 7; i++) {
@@ -2255,13 +2255,13 @@
         });
         data.push({
           date: date,
-          weekDay: dateFns.format(date, 'iii', {
+          weekDay: dateFns.format(date, "iii", {
             locale: dateFnsLocale
           }),
-          day: dateFns.format(date, 'dd', {
+          day: dateFns.format(date, "dd", {
             locale: dateFnsLocale
           }),
-          month: dateFns.format(date, 'MM', {
+          month: dateFns.format(date, "MM", {
             locale: dateFnsLocale
           })
         });
@@ -2278,7 +2278,7 @@
 
       var _loop4 = function _loop4(i) {
         var id = "line_".concat(i);
-        var label = dateFns.format(dayStartHour, 'HH:mm aaa'); //TODO Add everyday event capability
+        var label = dateFns.format(dayStartHour, "HH:mm aaa"); //TODO Add everyday event capability
         //if (i === 0) {
         //id = `line_everyday`; label = 'Everyday'
         //}
@@ -2298,7 +2298,7 @@
             var data = events.filter(function (event) {
               var _event$startHour;
 
-              var eventDate = dateFns.parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date());
+              var eventDate = dateFns.parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date());
               return dateFns.isSameDay(column === null || column === void 0 ? void 0 : column.date, eventDate) && (event === null || event === void 0 ? void 0 : (_event$startHour = event.startHour) === null || _event$startHour === void 0 ? void 0 : _event$startHour.toUpperCase()) === (label === null || label === void 0 ? void 0 : label.toUpperCase());
             });
             obj.days.push({
@@ -2329,13 +2329,13 @@
     var getDayHeader = function getDayHeader() {
       return [{
         date: selectedDay,
-        weekDay: dateFns.format(selectedDay, 'iii', {
+        weekDay: dateFns.format(selectedDay, "iii", {
           locale: dateFnsLocale
         }),
-        day: dateFns.format(selectedDay, 'dd', {
+        day: dateFns.format(selectedDay, "dd", {
           locale: dateFnsLocale
         }),
-        month: dateFns.format(selectedDay, 'MM', {
+        month: dateFns.format(selectedDay, "MM", {
           locale: dateFnsLocale
         })
       }];
@@ -2348,7 +2348,7 @@
 
       var _loop5 = function _loop5(i) {
         var id = "line_".concat(i);
-        var label = dateFns.format(dayStartHour, 'HH:mm aaa');
+        var label = dateFns.format(dayStartHour, "HH:mm aaa");
 
         if (i > 0) {
           var obj = {
@@ -2361,7 +2361,7 @@
           var matchedEvents = events.filter(function (event) {
             var _event$startHour2;
 
-            var eventDate = dateFns.parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date());
+            var eventDate = dateFns.parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date());
             return dateFns.isSameDay(column === null || column === void 0 ? void 0 : column.date, eventDate) && (event === null || event === void 0 ? void 0 : (_event$startHour2 = event.startHour) === null || _event$startHour2 === void 0 ? void 0 : _event$startHour2.toUpperCase()) === (label === null || label === void 0 ? void 0 : label.toUpperCase());
           });
           obj.days.push({
@@ -2403,7 +2403,7 @@
     var handleDateChange = function handleDateChange(day, date) {
       setDaysInMonth(day);
       setSelectedDay(date);
-      setSelectedDate(dateFns.format(date, 'MMMM-yyyy'));
+      setSelectedDate(dateFns.format(date, "MMMM-yyyy"));
     };
     /**
      * @name handleModeChange
@@ -2451,7 +2451,7 @@
                     setTimeout(function () {
                       setAlertState(_objectSpread(_objectSpread({}, alertState), {}, {
                         open: false,
-                        message: ''
+                        message: ""
                       }));
                     }, alertState.delay);
                   }
@@ -2501,9 +2501,9 @@
 
     }, [mode, weekDays, daysInMonth, selectedDay, selectedDate, dateFnsLocale, i18n.language, startWeekOn]);
     React.useEffect(function () {
-      if (locale$1 !== i18n.language) {
+      if (locale$1 !== i18n.language && localStorage) {
         //localStorage.getItem('i18nextLng')
-        localStorage.setItem('i18nextLng', locale$1.toLowerCase());
+        localStorage.setItem("i18nextLng", locale$1.toLowerCase());
         i18n.changeLanguage(locale$1.toLowerCase());
         updateWeekDays();
       }
@@ -2545,7 +2545,7 @@
       alignItems: "center",
       justifyContent: "start"
     }, isMonthMode && /*#__PURE__*/React__default["default"].createElement(TransitionMode, {
-      in: true
+      "in": true
     }, /*#__PURE__*/React__default["default"].createElement(material.Grid, {
       item: true,
       xs: 12
@@ -2562,7 +2562,7 @@
       onDateChange: handleDateChange,
       onEventsChange: handleEventsChange
     }))), isWeekMode && /*#__PURE__*/React__default["default"].createElement(TransitionMode, {
-      in: true
+      "in": true
     }, /*#__PURE__*/React__default["default"].createElement(material.Grid, {
       item: true,
       xs: 12
@@ -2579,7 +2579,7 @@
       onDateChange: handleDateChange,
       onEventsChange: handleEventsChange
     }))), isDayMode && /*#__PURE__*/React__default["default"].createElement(TransitionMode, {
-      in: true
+      "in": true
     }, /*#__PURE__*/React__default["default"].createElement(material.Grid, {
       item: true,
       xs: 12
@@ -2596,7 +2596,7 @@
       onDateChange: handleDateChange,
       onEventsChange: handleEventsChange
     })))), isTimelineMode && /*#__PURE__*/React__default["default"].createElement(TransitionMode, {
-      in: true
+      "in": true
     }, /*#__PURE__*/React__default["default"].createElement(material.Grid, {
       container: true,
       spacing: 2,
@@ -2630,7 +2630,7 @@
     onAlertCloseButtonClicked: PropTypes__default["default"].func
   };
   Scheduler.defaultProps = {
-    locale: 'en',
+    locale: "en",
     legacyStyle: false
   };
 

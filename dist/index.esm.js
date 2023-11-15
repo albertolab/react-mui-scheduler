@@ -282,7 +282,7 @@ i18n // pass the i18n instance to react-i18next.
 // for all options read: https://www.i18next.com/overview/configuration-options
 .init({
   resources: resources,
-  lng: localStorage.getItem('i18nextLng'),
+  lng: localStorage ? localStorage.getItem("i18nextLng") : "fr",
   ns: ["common"],
   defaultNS: "common",
   fallbackNS: "common",
@@ -749,7 +749,7 @@ function SchedulerToolbar(props) {
   })), /*#__PURE__*/React.createElement(Typography, {
     variant: "body2"
   }, "Settings"))), /*#__PURE__*/React.createElement(Collapse, {
-    in: alertProps === null || alertProps === void 0 ? void 0 : alertProps.open
+    "in": alertProps === null || alertProps === void 0 ? void 0 : alertProps.open
   }, /*#__PURE__*/React.createElement(Alert, {
     color: alertProps === null || alertProps === void 0 ? void 0 : alertProps.color,
     severity: alertProps === null || alertProps === void 0 ? void 0 : alertProps.severity,
@@ -1961,11 +1961,11 @@ function Scheduler(props) {
   var today = new Date();
   useTheme();
 
-  var _useTranslation = useTranslation(['common']),
+  var _useTranslation = useTranslation(["common"]),
       t = _useTranslation.t,
       i18n = _useTranslation.i18n;
 
-  var weeks = [t('mon'), t('tue'), t('wed'), t('thu'), t('fri'), t('sat'), t('sun')];
+  var weeks = [t("mon"), t("tue"), t("wed"), t("thu"), t("fri"), t("sat"), t("sun")];
 
   var _useState = useState({}),
       _useState2 = _slicedToArray(_useState, 2),
@@ -1987,7 +1987,7 @@ function Scheduler(props) {
       alertState = _useState8[0],
       setAlertState = _useState8[1];
 
-  var _useState9 = useState((options === null || options === void 0 ? void 0 : options.defaultMode) || 'month'),
+  var _useState9 = useState((options === null || options === void 0 ? void 0 : options.defaultMode) || "month"),
       _useState10 = _slicedToArray(_useState9, 2),
       mode = _useState10[0],
       setMode = _useState10[1];
@@ -1997,12 +1997,12 @@ function Scheduler(props) {
       daysInMonth = _useState12[0],
       setDaysInMonth = _useState12[1];
 
-  var _useState13 = useState((options === null || options === void 0 ? void 0 : options.startWeekOn) || 'mon'),
+  var _useState13 = useState((options === null || options === void 0 ? void 0 : options.startWeekOn) || "mon"),
       _useState14 = _slicedToArray(_useState13, 2),
       startWeekOn = _useState14[0],
       setStartWeekOn = _useState14[1];
 
-  var _useState15 = useState(format(today, 'MMMM-yyyy')),
+  var _useState15 = useState(format(today, "MMMM-yyyy")),
       _useState16 = _slicedToArray(_useState15, 2),
       selectedDate = _useState16[0],
       setSelectedDate = _useState16[1];
@@ -2010,8 +2010,8 @@ function Scheduler(props) {
   var _useReducer = useReducer(function (state) {
     var _options$startWeekOn;
 
-    if ((options === null || options === void 0 ? void 0 : (_options$startWeekOn = options.startWeekOn) === null || _options$startWeekOn === void 0 ? void 0 : _options$startWeekOn.toUpperCase()) === 'SUN') {
-      return [t('sun'), t('mon'), t('tue'), t('wed'), t('thu'), t('fri'), t('sat')];
+    if ((options === null || options === void 0 ? void 0 : (_options$startWeekOn = options.startWeekOn) === null || _options$startWeekOn === void 0 ? void 0 : _options$startWeekOn.toUpperCase()) === "SUN") {
+      return [t("sun"), t("mon"), t("tue"), t("wed"), t("thu"), t("fri"), t("sat")];
     }
 
     return weeks;
@@ -2020,42 +2020,42 @@ function Scheduler(props) {
       weekDays = _useReducer2[0],
       updateWeekDays = _useReducer2[1];
 
-  var isDayMode = mode.toLowerCase() === 'day';
-  var isWeekMode = mode.toLowerCase() === 'week';
-  var isMonthMode = mode.toLowerCase() === 'month';
-  var isTimelineMode = mode.toLowerCase() === 'timeline';
-  var TransitionMode = (options === null || options === void 0 ? void 0 : options.transitionMode) === 'zoom' ? Zoom : (options === null || options === void 0 ? void 0 : options.transitionMode) === 'fade' ? Fade : Slide;
+  var isDayMode = mode.toLowerCase() === "day";
+  var isWeekMode = mode.toLowerCase() === "week";
+  var isMonthMode = mode.toLowerCase() === "month";
+  var isTimelineMode = mode.toLowerCase() === "timeline";
+  var TransitionMode = (options === null || options === void 0 ? void 0 : options.transitionMode) === "zoom" ? Zoom : (options === null || options === void 0 ? void 0 : options.transitionMode) === "fade" ? Fade : Slide;
   var dateFnsLocale = enAU;
 
-  if (locale === 'fr') {
+  if (locale === "fr") {
     dateFnsLocale = fr;
   }
 
-  if (locale === 'ko') {
+  if (locale === "ko") {
     dateFnsLocale = ko;
   }
 
-  if (locale === 'de') {
+  if (locale === "de") {
     dateFnsLocale = de;
   }
 
-  if (locale === 'es') {
+  if (locale === "es") {
     dateFnsLocale = es;
   }
 
-  if (locale === 'ar') {
+  if (locale === "ar") {
     dateFnsLocale = ar;
   }
 
-  if (locale === 'ja') {
+  if (locale === "ja") {
     dateFnsLocale = ja;
   }
 
-  if (locale === 'ru') {
+  if (locale === "ru") {
     dateFnsLocale = ru;
   }
 
-  if (locale === 'zh') {
+  if (locale === "zh") {
     dateFnsLocale = zhCN;
   }
   /**
@@ -2076,11 +2076,11 @@ function Scheduler(props) {
         flex: 1,
         sortable: false,
         editable: false,
-        align: 'center',
+        align: "center",
         headerName: day,
-        headerAlign: 'center',
+        headerAlign: "center",
         field: "rowday".concat(i + 1),
-        headerClassName: 'scheduler-theme--header'
+        headerClassName: "scheduler-theme--header"
       };
     });
   };
@@ -2097,12 +2097,12 @@ function Scheduler(props) {
     var rows = [],
         daysBefore = [];
     var iteration = getWeeksInMonth(selectedDay);
-    var startOnSunday = (startWeekOn === null || startWeekOn === void 0 ? void 0 : startWeekOn.toUpperCase()) === 'SUN' && t('sun').toUpperCase() === weekDays[0].toUpperCase();
+    var startOnSunday = (startWeekOn === null || startWeekOn === void 0 ? void 0 : startWeekOn.toUpperCase()) === "SUN" && t("sun").toUpperCase() === weekDays[0].toUpperCase();
     var monthStartDate = startOfMonth(selectedDay); // First day of month
 
     var monthStartDay = getDay(monthStartDate); // Index of the day in week
 
-    var dateDay = parseInt(format(monthStartDate, 'dd')); // Month start day
+    var dateDay = parseInt(format(monthStartDate, "dd")); // Month start day
     // Condition check helper
 
     var checkCondition = function checkCondition(v) {
@@ -2114,9 +2114,9 @@ function Scheduler(props) {
         var subDate = sub(monthStartDate, {
           days: monthStartDay - i + (startOnSunday ? 1 : 0)
         });
-        var day = parseInt(format(subDate, 'dd'));
+        var day = parseInt(format(subDate, "dd"));
         var data = events.filter(function (event) {
-          return isSameDay(subDate, parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+          return isSameDay(subDate, parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
         });
         daysBefore.push({
           id: "day_-".concat(day),
@@ -2137,9 +2137,9 @@ function Scheduler(props) {
         var subDate = sub(monthStartDate, {
           days: _i
         });
-        var day = parseInt(format(subDate, 'dd'));
+        var day = parseInt(format(subDate, "dd"));
         var data = events.filter(function (event) {
-          return isSameDay(subDate, parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+          return isSameDay(subDate, parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
         });
         daysBefore.push({
           id: "day_-".concat(day),
@@ -2166,9 +2166,9 @@ function Scheduler(props) {
       var obj = [];
 
       var _loop3 = function _loop3(j) {
-        var date = parse("".concat(dateDay, "-").concat(selectedDate), 'dd-MMMM-yyyy', new Date());
+        var date = parse("".concat(dateDay, "-").concat(selectedDate), "dd-MMMM-yyyy", new Date());
         var data = events.filter(function (event) {
-          return isSameDay(date, parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+          return isSameDay(date, parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
         });
         obj.push({
           id: "day_-".concat(dateDay),
@@ -2215,10 +2215,10 @@ function Scheduler(props) {
           addDate = add(addDate, {
             days: 1
           });
-          var d = format(addDate, 'dd'); // eslint-disable-next-line
+          var d = format(addDate, "dd"); // eslint-disable-next-line
 
           var data = events.filter(function (event) {
-            return isSameDay(addDate, parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date()));
+            return isSameDay(addDate, parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date()));
           });
           lastDaysData.push({
             id: "day_-".concat(d),
@@ -2244,7 +2244,7 @@ function Scheduler(props) {
   var getWeekHeader = function getWeekHeader() {
     var data = [];
     var weekStart = startOfWeek(selectedDay, {
-      weekStartsOn: startWeekOn === 'mon' ? 1 : 0
+      weekStartsOn: startWeekOn === "mon" ? 1 : 0
     });
 
     for (var i = 0; i < 7; i++) {
@@ -2253,13 +2253,13 @@ function Scheduler(props) {
       });
       data.push({
         date: date,
-        weekDay: format(date, 'iii', {
+        weekDay: format(date, "iii", {
           locale: dateFnsLocale
         }),
-        day: format(date, 'dd', {
+        day: format(date, "dd", {
           locale: dateFnsLocale
         }),
-        month: format(date, 'MM', {
+        month: format(date, "MM", {
           locale: dateFnsLocale
         })
       });
@@ -2276,7 +2276,7 @@ function Scheduler(props) {
 
     var _loop4 = function _loop4(i) {
       var id = "line_".concat(i);
-      var label = format(dayStartHour, 'HH:mm aaa'); //TODO Add everyday event capability
+      var label = format(dayStartHour, "HH:mm aaa"); //TODO Add everyday event capability
       //if (i === 0) {
       //id = `line_everyday`; label = 'Everyday'
       //}
@@ -2296,7 +2296,7 @@ function Scheduler(props) {
           var data = events.filter(function (event) {
             var _event$startHour;
 
-            var eventDate = parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date());
+            var eventDate = parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date());
             return isSameDay(column === null || column === void 0 ? void 0 : column.date, eventDate) && (event === null || event === void 0 ? void 0 : (_event$startHour = event.startHour) === null || _event$startHour === void 0 ? void 0 : _event$startHour.toUpperCase()) === (label === null || label === void 0 ? void 0 : label.toUpperCase());
           });
           obj.days.push({
@@ -2327,13 +2327,13 @@ function Scheduler(props) {
   var getDayHeader = function getDayHeader() {
     return [{
       date: selectedDay,
-      weekDay: format(selectedDay, 'iii', {
+      weekDay: format(selectedDay, "iii", {
         locale: dateFnsLocale
       }),
-      day: format(selectedDay, 'dd', {
+      day: format(selectedDay, "dd", {
         locale: dateFnsLocale
       }),
-      month: format(selectedDay, 'MM', {
+      month: format(selectedDay, "MM", {
         locale: dateFnsLocale
       })
     }];
@@ -2346,7 +2346,7 @@ function Scheduler(props) {
 
     var _loop5 = function _loop5(i) {
       var id = "line_".concat(i);
-      var label = format(dayStartHour, 'HH:mm aaa');
+      var label = format(dayStartHour, "HH:mm aaa");
 
       if (i > 0) {
         var obj = {
@@ -2359,7 +2359,7 @@ function Scheduler(props) {
         var matchedEvents = events.filter(function (event) {
           var _event$startHour2;
 
-          var eventDate = parse(event === null || event === void 0 ? void 0 : event.date, 'yyyy-MM-dd', new Date());
+          var eventDate = parse(event === null || event === void 0 ? void 0 : event.date, "yyyy-MM-dd", new Date());
           return isSameDay(column === null || column === void 0 ? void 0 : column.date, eventDate) && (event === null || event === void 0 ? void 0 : (_event$startHour2 = event.startHour) === null || _event$startHour2 === void 0 ? void 0 : _event$startHour2.toUpperCase()) === (label === null || label === void 0 ? void 0 : label.toUpperCase());
         });
         obj.days.push({
@@ -2401,7 +2401,7 @@ function Scheduler(props) {
   var handleDateChange = function handleDateChange(day, date) {
     setDaysInMonth(day);
     setSelectedDay(date);
-    setSelectedDate(format(date, 'MMMM-yyyy'));
+    setSelectedDate(format(date, "MMMM-yyyy"));
   };
   /**
    * @name handleModeChange
@@ -2449,7 +2449,7 @@ function Scheduler(props) {
                   setTimeout(function () {
                     setAlertState(_objectSpread(_objectSpread({}, alertState), {}, {
                       open: false,
-                      message: ''
+                      message: ""
                     }));
                   }, alertState.delay);
                 }
@@ -2499,9 +2499,9 @@ function Scheduler(props) {
 
   }, [mode, weekDays, daysInMonth, selectedDay, selectedDate, dateFnsLocale, i18n.language, startWeekOn]);
   useEffect(function () {
-    if (locale !== i18n.language) {
+    if (locale !== i18n.language && localStorage) {
       //localStorage.getItem('i18nextLng')
-      localStorage.setItem('i18nextLng', locale.toLowerCase());
+      localStorage.setItem("i18nextLng", locale.toLowerCase());
       i18n.changeLanguage(locale.toLowerCase());
       updateWeekDays();
     }
@@ -2543,7 +2543,7 @@ function Scheduler(props) {
     alignItems: "center",
     justifyContent: "start"
   }, isMonthMode && /*#__PURE__*/React.createElement(TransitionMode, {
-    in: true
+    "in": true
   }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     xs: 12
@@ -2560,7 +2560,7 @@ function Scheduler(props) {
     onDateChange: handleDateChange,
     onEventsChange: handleEventsChange
   }))), isWeekMode && /*#__PURE__*/React.createElement(TransitionMode, {
-    in: true
+    "in": true
   }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     xs: 12
@@ -2577,7 +2577,7 @@ function Scheduler(props) {
     onDateChange: handleDateChange,
     onEventsChange: handleEventsChange
   }))), isDayMode && /*#__PURE__*/React.createElement(TransitionMode, {
-    in: true
+    "in": true
   }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     xs: 12
@@ -2594,7 +2594,7 @@ function Scheduler(props) {
     onDateChange: handleDateChange,
     onEventsChange: handleEventsChange
   })))), isTimelineMode && /*#__PURE__*/React.createElement(TransitionMode, {
-    in: true
+    "in": true
   }, /*#__PURE__*/React.createElement(Grid, {
     container: true,
     spacing: 2,
@@ -2628,7 +2628,7 @@ Scheduler.propTypes = {
   onAlertCloseButtonClicked: PropTypes.func
 };
 Scheduler.defaultProps = {
-  locale: 'en',
+  locale: "en",
   legacyStyle: false
 };
 
