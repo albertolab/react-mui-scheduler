@@ -282,7 +282,7 @@ i18n // pass the i18n instance to react-i18next.
 // for all options read: https://www.i18next.com/overview/configuration-options
 .init({
   resources: resources,
-  lng: localStorage ? localStorage.getItem("i18nextLng") : "fr",
+  lng: "fr",
   ns: ["common"],
   defaultNS: "common",
   fallbackNS: "common",
@@ -2499,10 +2499,10 @@ function Scheduler(props) {
 
   }, [mode, weekDays, daysInMonth, selectedDay, selectedDate, dateFnsLocale, i18n.language, startWeekOn]);
   useEffect(function () {
-    if (locale !== i18n.language && localStorage) {
+    if (locale !== i18n.language) {
       //localStorage.getItem('i18nextLng')
-      localStorage.setItem("i18nextLng", locale.toLowerCase());
-      i18n.changeLanguage(locale.toLowerCase());
+      //localStorage.setItem("i18nextLng", locale.toLowerCase());
+      i18n.changeLanguage("fr");
       updateWeekDays();
     }
   }, [locale]);

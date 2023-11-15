@@ -476,10 +476,10 @@ function Scheduler(props) {
   ]);
 
   useEffect(() => {
-    if (locale !== i18n.language && localStorage) {
+    if (locale !== i18n.language) {
       //localStorage.getItem('i18nextLng')
-      localStorage.setItem("i18nextLng", locale.toLowerCase());
-      i18n.changeLanguage(locale.toLowerCase());
+      //localStorage.setItem("i18nextLng", locale.toLowerCase());
+      i18n.changeLanguage("fr");
       updateWeekDays();
     }
   }, [locale]);

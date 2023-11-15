@@ -28,7 +28,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources,
-    lng: localStorage ? localStorage.getItem("i18nextLng") : "fr",
+    lng: "fr",
     ns: ["common"],
     defaultNS: "common",
     fallbackNS: "common",

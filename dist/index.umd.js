@@ -284,7 +284,7 @@
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources: resources,
-    lng: localStorage ? localStorage.getItem("i18nextLng") : "fr",
+    lng: "fr",
     ns: ["common"],
     defaultNS: "common",
     fallbackNS: "common",
@@ -2501,10 +2501,10 @@
 
     }, [mode, weekDays, daysInMonth, selectedDay, selectedDate, dateFnsLocale, i18n.language, startWeekOn]);
     React.useEffect(function () {
-      if (locale$1 !== i18n.language && localStorage) {
+      if (locale$1 !== i18n.language) {
         //localStorage.getItem('i18nextLng')
-        localStorage.setItem("i18nextLng", locale$1.toLowerCase());
-        i18n.changeLanguage(locale$1.toLowerCase());
+        //localStorage.setItem("i18nextLng", locale.toLowerCase());
+        i18n.changeLanguage("fr");
         updateWeekDays();
       }
     }, [locale$1]);
